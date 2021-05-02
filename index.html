@@ -1,18 +1,49 @@
 <html>
-    <head>
-    </head>
-    <body>
-        <wrapper id="quote-box">
-            <div id="text">
+  <head>
+    <script>
+      const quoteArr = [
+        {
+          quote: "I am a Programmer",
+          author: "PQR",
+        },
+        {
+          quote: "I am a Shef",
+          author: "ABC",
+        },
+        {
+          quote: "I am a Shopkeeper",
+          author: "XYZ",
+        },
+      ];
+      window.onload = init;
+      function init() {
+        createQuote();
+      }
+      function createQuote() {
+        console.log("New Quote created");
+        tweeterUrl = "https://www.twitter.com/intent/tweet";
+        let random = Math.floor(Math.random() * quoteArr.length);
 
-            </div>
-            <div id="author">
-                
-            </div>
-            <button id="new-quote">New Quote</button>
-            <a id="tweet-quote">Tweet</a>
-        </wrapper>
-        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-    </body>
-   
+        document.getElementById("tweet-quote").href = tweeterUrl;
+        document.getElementById("text").innerText = quoteArr[random].quote;
+        document.getElementById("author").innerText = quoteArr[random].author;
+      }
+    </script>
+  </head>
+  <body>
+    <wrapper id="quote-box">
+      <div id="text"></div>
+      <div id="author"></div>
+      <button
+        class="button"
+        id="new-quote"
+        target="_top"
+        onclick="createQuote()"
+      >
+        New Quote
+      </button>
+      <a src="#" id="tweet-quote"> Tweet</a>
+    </wrapper>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  </body>
 </html>
